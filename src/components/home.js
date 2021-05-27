@@ -1,43 +1,29 @@
-import { useEffect } from 'react';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
-import { getCategories } from '../utils/api';
 import { Link } from 'react-router-dom';
+import CategoryDropdown from './categorydropdown';
 
-const Home = ({ categories, setCategories, category, setCategory }) => {
-  useEffect(() => {
-    getCategories().then((categoriesArray) => {
-      setCategories(categoriesArray);
-    });
-  }, [setCategories]);
-
+const Home = ({ categories, setCategory, setCategories }) => {
   return (
     <main>
-      <h2>FIND REVIEWS BY GAME CATEGORY</h2>
-      <DropdownButton id="dropdown-basic-button" title="CHOOSE CATEGORY">
-        {categories.map((categoryObj) => {
-          return (
-            <Dropdown.Item
-              as={Link}
-              to="/reviews"
-              key={categoryObj.slug}
-              onClick={() => {
-                setCategory(categoryObj.slug);
-              }}
-            >
-              {categoryObj.slug}
-            </Dropdown.Item>
-          );
-        })}
-      </DropdownButton>
-      <Link
-        to="/reviews"
-        onClick={() => {
-          setCategory('');
-        }}
-      >
-        <h2 className="View-all">VIEW ALL REVIEWS</h2>
-      </Link>
+      <div className="Home-page">
+        <h2>FIND REVIEWS BY GAME CATEGORY</h2>
+      </div>
+      <div className="Home-page">
+        <CategoryDropdown
+          setCategories={setCategories}
+          categories={categories}
+          setCategory={setCategory}
+        />
+      </div>
+      <div className="Home-page">
+        <Link
+          to="/reviews"
+          onClick={() => {
+            setCategory('');
+          }}
+        >
+          <h2 className="View-all">VIEW ALL REVIEWS</h2>
+        </Link>
+      </div>
     </main>
   );
 };

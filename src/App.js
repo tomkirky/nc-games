@@ -5,13 +5,14 @@ import './App.css';
 import Nav from './components/nav';
 import Home from './components/home';
 import Reviews from './components/reviews';
+import FourZeroFour from './components/fourzerofour';
 import { UserContext } from './contexts/User';
 import IndividualReview from './components/individualreview';
 
 function App() {
+  const [user, setUser] = useState(null);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
-  const [user, setUser] = useState(null);
 
   return (
     <Router>
@@ -21,23 +22,24 @@ function App() {
           <Switch>
             <Route path="/" exact>
               <Home
+                setCategory={setCategory}
                 categories={categories}
                 setCategories={setCategories}
-                category={category}
-                setCategory={setCategory}
               />
             </Route>
-          </Switch>
-          <Switch>
             <Route path="/reviews" exact>
               <Reviews
                 category={category}
                 setCategory={setCategory}
                 categories={categories}
+                setCategories={setCategories}
               />
             </Route>
             <Route exact path="/reviews/:review_id">
               <IndividualReview />
+            </Route>
+            <Route path="*">
+              <FourZeroFour />
             </Route>
           </Switch>
         </div>
