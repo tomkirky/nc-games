@@ -6,6 +6,7 @@ import CategoryDropdown from './categorydropdown';
 import DropdownButton from 'react-bootstrap/esm/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import formatDate from '../utils/date';
+import { Nav } from 'react-bootstrap';
 
 const Reviews = ({ category, setCategory, categories, setCategories }) => {
   const [reviews, setReviews] = useState([]);
@@ -24,39 +25,45 @@ const Reviews = ({ category, setCategory, categories, setCategories }) => {
   return (
     <main>
       <h1>{formatDropdownString(category) || 'All Items'}</h1>
-      <CategoryDropdown
-        setCategories={setCategories}
-        categories={categories}
-        setCategory={setCategory}
-      />
-      <DropdownButton id="dropdown-basic-button" title="SORT BY">
-        {sortOptions.map((sortString) => {
-          return (
-            <Dropdown.Item
-              key={sortString}
-              onClick={() => {
-                setSortBy(sortString);
-              }}
-            >
-              {formatDropdownString(sortString)}
-            </Dropdown.Item>
-          );
-        })}
-      </DropdownButton>
-      <DropdownButton id="dropdown-basic-button" title="ORDER BY">
-        {orderOptions.map((orderString) => {
-          return (
-            <Dropdown.Item
-              key={orderString}
-              onClick={() => {
-                setOrder(orderString);
-              }}
-            >
-              {formatDropdownString(orderString)}
-            </Dropdown.Item>
-          );
-        })}
-      </DropdownButton>
+      <Nav inline className="justify-content-center mt-4 pb-4">
+        <CategoryDropdown
+          setCategories={setCategories}
+          categories={categories}
+          setCategory={setCategory}
+        />
+        <DropdownButton
+          id="dropdown-basic-button"
+          title="SORT BY"
+          className="pr-2"
+        >
+          {sortOptions.map((sortString) => {
+            return (
+              <Dropdown.Item
+                key={sortString}
+                onClick={() => {
+                  setSortBy(sortString);
+                }}
+              >
+                {formatDropdownString(sortString)}
+              </Dropdown.Item>
+            );
+          })}
+        </DropdownButton>
+        <DropdownButton id="dropdown-basic-button" title="ORDER BY">
+          {orderOptions.map((orderString) => {
+            return (
+              <Dropdown.Item
+                key={orderString}
+                onClick={() => {
+                  setOrder(orderString);
+                }}
+              >
+                {formatDropdownString(orderString)}
+              </Dropdown.Item>
+            );
+          })}
+        </DropdownButton>
+      </Nav>
       <Link
         to="/reviews"
         onClick={() => {

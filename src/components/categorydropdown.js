@@ -13,7 +13,11 @@ const CategoryDropdown = ({ setCategories, categories, setCategory }) => {
   }, [setCategories]);
 
   return (
-    <DropdownButton id="dropdown-basic-button" title="CHOOSE CATEGORY">
+    <DropdownButton
+      id="dropdown-basic-button"
+      title="CHOOSE CATEGORY"
+      className="pr-2"
+    >
       {categories.map((categoryObj) => {
         return (
           <Dropdown.Item

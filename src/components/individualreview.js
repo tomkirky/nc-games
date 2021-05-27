@@ -6,6 +6,7 @@ import { getReview, patchVotes } from '../utils/api';
 import formatDate from '../utils/date';
 import Comments from './comments';
 import FourZeroFour from './fourzerofour';
+import AddComment from './addnewcomment';
 
 const IndividualReview = () => {
   const [comments, setComments] = useState([]);
@@ -16,9 +17,6 @@ const IndividualReview = () => {
   const [hasError, setHasError] = useState(false);
 
   const { review_id } = useParams();
-
-  /*Need to setup decrease button to decrease along with logic for if 
-statement dependent on which is clicked */
 
   const handleIncVoteClick = () => {
     setVote((currVote) => currVote + 1);
@@ -99,9 +97,7 @@ statement dependent on which is clicked */
           />
         </Tab>
         <Tab eventKey="add-comment" title="Add Comment">
-          <p className="text-center border border-dark justify-content-center col-md-6 offset-md-3 mt-2 mb-2">
-            PLACEHOLDER FOR COMMENT SUBMIT FORM
-          </p>
+          <AddComment setComments={setComments} />
         </Tab>
       </Tabs>
     </main>

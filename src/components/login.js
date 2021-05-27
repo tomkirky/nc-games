@@ -5,11 +5,14 @@ import { useState } from 'react';
 import { UserContext } from '../contexts/User';
 import { getUser } from '../utils/api';
 import { useContext } from 'react';
+import { ValidUserContext } from '../contexts/ValidUser';
 
 const IsLoggedIn = () => {
   const { user, setUser } = useContext(UserContext);
+  const { validUser, setValidUser } = useContext(ValidUserContext);
+
   const [username, setUsername] = useState('');
-  const [validUser, setValidUser] = useState(false);
+
   const [hasError, setHasError] = useState(false);
 
   const handleSubmit = (e) => {

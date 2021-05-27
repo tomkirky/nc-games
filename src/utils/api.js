@@ -31,7 +31,12 @@ export const getUser = async (username) => {
   return data.username;
 };
 
-export const patchVotes = async (review_id, voteBody) => {
-  await gamesApi.patch(`/reviews/${review_id}/`, voteBody);
+export const patchVotes = async (review_id, voteObj) => {
+  await gamesApi.patch(`/reviews/${review_id}/`, voteObj);
   return console.log('Vote successfully added');
+};
+
+export const postComment = async (review_id, commentObj) => {
+  await gamesApi.post(`/reviews/${review_id}/comments`, commentObj);
+  return console.log('Comment successfully posted');
 };
