@@ -4,9 +4,11 @@ import { Tab, Tabs } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import { getReview, patchVotes } from '../utils/api';
 import formatDate from '../utils/date';
-import Comments from './comments';
-import FourZeroFour from './fourzerofour';
-import AddComment from './addnewcomment';
+import Comments from './Comments';
+import FourZeroFour from './FourZeroFour';
+import AddComment from './AddNewComment';
+import { HandThumbsDown, HandThumbsUp, Heart } from 'react-bootstrap-icons';
+import { formatCategory } from '../utils/formatWords';
 
 const IndividualReview = () => {
   const [comments, setComments] = useState([]);
@@ -31,6 +33,7 @@ const IndividualReview = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getReview(review_id)
       .then((data) => {
         setReview(data);
@@ -39,6 +42,7 @@ const IndividualReview = () => {
       })
       .catch(() => {
         setHasError(true);
+        setIsLoading(false);
       });
   }, [review_id]);
 
@@ -56,14 +60,18 @@ const IndividualReview = () => {
       <div>
         <h1>{review.title}</h1>
         <h2>{review.designer}</h2>
-        <h3>Category: {review.category}</h3>
-        <h3>Votes: {vote}</h3>
+        <h3>Category: {formatCategory(review.category)}</h3>
+        <h3>
+          <Heart className="mb-1 mr-2" />
+          {vote}
+        </h3>
         <Button
           onClick={handleDecVoteClick}
           disabled={hasVoted}
           className="Vote-button"
           variant="danger"
         >
+          <HandThumbsDown className="mb-1 mr-1" />
           Downvote
         </Button>
         <Button
@@ -72,6 +80,7 @@ const IndividualReview = () => {
           className="Vote-button"
           variant="success"
         >
+          <HandThumbsUp className="mb-1 mr-1" />
           Upvote
         </Button>
       </div>

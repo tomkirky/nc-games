@@ -14,10 +14,10 @@ const AddComment = ({ setComments }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postComment(review_id, { username: user, body: newComment })
-      .then(() => {
+      .then((res) => {
         setSubmitted(true);
         setComments((comments) => {
-          return [newComment, ...comments];
+          return [res, ...comments];
         });
       })
       .catch(() => {

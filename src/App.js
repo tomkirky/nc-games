@@ -2,13 +2,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
-import Nav from './components/nav';
-import Home from './components/home';
-import Reviews from './components/reviews';
-import FourZeroFour from './components/fourzerofour';
+import Nav from './components/Nav';
+import Home from './components/Home';
+import Reviews from './components/Reviews';
+import FourZeroFour from './components/FourZeroFour';
 import { UserContext } from './contexts/User';
 import { ValidUserContext } from './contexts/ValidUser';
-import IndividualReview from './components/individualreview';
+import IndividualReview from './components/IndividualReview';
 
 function App() {
   const [user, setUser] = useState(null);

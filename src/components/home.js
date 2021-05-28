@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CategoryDropdown from './categorydropdown';
+import CategoryDropdown from './CategoryDropdown';
 
 const Home = ({ categories, setCategory, setCategories }) => {
   return (
@@ -15,6 +15,15 @@ const Home = ({ categories, setCategory, setCategories }) => {
         />
       </div>
       <div className="Home-page">
+        <video
+          playsInline="playsinline"
+          autoPlay="autoplay"
+          muted="muted"
+          loop="loop"
+          className="w-50 pb-5"
+        >
+          <source src="/video/vid.mp4" type="video/mp4" />
+        </video>
         <Link
           to="/reviews"
           onClick={() => {

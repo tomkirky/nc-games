@@ -2,6 +2,19 @@
   font-family: 'Lato', sans-serif;
 }
 
+.navbar-text {
+  font-size: large;
+}
+
+body {
+  background: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080') no-repeat
+    center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

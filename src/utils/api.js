@@ -10,6 +10,8 @@ export const getCategories = async () => {
 };
 
 export const getReviews = async (category, sortBy, order) => {
+  sortBy = sortBy === 'SORT BY' ? (sortBy = 'created_at') : sortBy;
+  order = order === 'ORDER BY' ? (order = 'desc') : order;
   const { data } = await gamesApi.get('/reviews', {
     params: { category, sort_by: sortBy, order },
   });
@@ -37,6 +39,9 @@ export const patchVotes = async (review_id, voteObj) => {
 };
 
 export const postComment = async (review_id, commentObj) => {
-  await gamesApi.post(`/reviews/${review_id}/comments`, commentObj);
-  return console.log('Comment successfully posted');
+  const { data } = await gamesApi.post(
+    `/reviews/${review_id}/comments`,
+    commentObj
+  );
+  return data.comment;
 };

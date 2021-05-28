@@ -3,7 +3,7 @@ import DropdownButton from 'react-bootstrap/esm/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { getCategories } from '../utils/api';
 import { Link } from 'react-router-dom';
-import formatDropdownString from '../utils/sorting';
+import formatDropdownString from '../utils/formatWords';
 
 const CategoryDropdown = ({ setCategories, categories, setCategory }) => {
   useEffect(() => {
