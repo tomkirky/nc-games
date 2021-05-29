@@ -57,7 +57,9 @@ const AddComment = ({ setComments }) => {
           }}
         />
       </Form.Group>
-      <Button type="submit">Submit Comment</Button>
+      <Button type="submit" variant="dark">
+        Submit Comment
+      </Button>
     </Form>
   );
 };

@@ -86,7 +86,7 @@ const IndividualReview = () => {
       </div>
       <Tabs
         defaultActiveKey="review"
-        id="uncontrolled-tab-example"
+        id="reviewsTabs"
         className="justify-content-center col-md-6 offset-md-3 mt-2"
       >
         <Tab

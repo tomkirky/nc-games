@@ -42,7 +42,7 @@ const IsLoggedIn = () => {
             <Navbar.Text className="text-center">Username Invalid</Navbar.Text>
           </Col>
           <Col xs="auto">
-            <Button type="submit" onClick={reset}>
+            <Button type="submit" onClick={reset} variant="dark">
               Retry
             </Button>
           </Col>
@@ -60,7 +60,7 @@ const IsLoggedIn = () => {
             </Navbar.Text>
           </Col>
           <Col xs="auto">
-            <Button type="submit" onClick={reset}>
+            <Button type="submit" onClick={reset} variant="dark">
               Log Out
             </Button>
           </Col>
@@ -84,7 +84,7 @@ const IsLoggedIn = () => {
         </Col>
         <Form.Label column sm={0}></Form.Label>
         <Col xs="auto">
-          <Button type="submit" onClick={handleSubmit}>
+          <Button type="submit" onClick={handleSubmit} variant="dark">
             Sign in
           </Button>
         </Col>

@@ -20,7 +20,7 @@ const Home = ({ categories, setCategory, setCategories }) => {
           autoPlay="autoplay"
           muted="muted"
           loop="loop"
-          className="w-50 pb-5"
+          className="w-75 pb-3"
         >
           <source src="/video/vid.mp4" type="video/mp4" />
         </video>

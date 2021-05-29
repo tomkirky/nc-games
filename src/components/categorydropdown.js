@@ -17,6 +17,7 @@ const CategoryDropdown = ({ setCategories, categories, setCategory }) => {
       id="dropdown-basic-button"
       title="CHOOSE CATEGORY"
       className="pr-2"
+      variant="dark"
     >
       {categories.map((categoryObj) => {
         return (

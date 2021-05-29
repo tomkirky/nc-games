@@ -36,6 +36,7 @@ const Reviews = ({ category, setCategory, categories, setCategories }) => {
           id="dropdown-basic-button"
           title={formatDropdownString(sortBy)}
           className="pr-2"
+          variant="dark"
         >
           {sortOptions.map((sortString) => {
             return (
@@ -53,6 +54,7 @@ const Reviews = ({ category, setCategory, categories, setCategories }) => {
         <DropdownButton
           id="dropdown-basic-button"
           title={formatDropdownString(order)}
+          variant="dark"
         >
           {orderOptions.map((orderString) => {
             return (
