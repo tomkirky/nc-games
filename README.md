@@ -28,7 +28,7 @@ You will need to clone this repository
 Firstly you will need to clone the repository using the following command within your terminal:
 
 ```
-$ git clone https://github.com/tomkirky/be-nc-games
+$ git clone https://github.com/tomkirky/nc-games
 ```
 Then you will need to install all of the necessary dependencies for the app using the following command:
 
